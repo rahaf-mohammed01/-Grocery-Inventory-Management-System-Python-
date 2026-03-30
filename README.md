@@ -41,7 +41,7 @@ The system demonstrates core programming concepts such as input handling, data s
 ---
 
 ## Example Output
---- Grocery Inventory Menu ---
+Grocery Inventory Menu 
 
 - Display all items
 - Add item
