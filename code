@@ -1,0 +1,115 @@
+PASSWORD = "1234"
+
+# Login
+def login():
+    pwd = input("Enter password: ")
+    if pwd == PASSWORD:
+        print("Login successful\n")
+        return True
+    else:
+        print("Wrong password.")
+        return False
+
+# Display
+def display_items(items):
+    print("\n--- Grocery Items ---")
+    if not items:
+        print("No items found.\n")
+        return
+    for i, item in enumerate(items, start=1):
+        print(f"{i}. {item['name']} | {item['type']} | {item['quantity']}")
+    print()
+
+# Add
+def add_item(items):
+    name = input("Item name: ").strip()
+    type_ = input("Item type: ").strip()
+    quantity = input("Quantity: ").strip()
+
+    if not name:
+        print("Name cannot be empty.\n")
+        return
+
+    items.append({"name": name, "type": type_, "quantity": quantity})
+    print("Item added!\n")
+
+# Delete
+def delete_item(items):
+    if not items:
+        print("No items to delete.\n")
+        return
+
+    display_items(items)
+    choice = input("Enter item number to delete: ").strip()
+
+    if choice.isdigit():
+        idx = int(choice) - 1
+        if 0 <= idx < len(items):
+            removed = items.pop(idx)
+            print(f"Removed: {removed['name']}\n")
+        else:
+            print("Invalid number.\n")
+    else:
+        print("Please enter a number.\n")
+
+# Edit
+def edit_item(items):
+    if not items:
+        print("No items to edit.\n")
+        return
+
+    display_items(items)
+    choice = input("Enter item number to edit: ").strip()
+
+    if choice.isdigit():
+        idx = int(choice) - 1
+        if 0 <= idx < len(items):
+            print("Leave blank to keep current value.")
+
+            new_name = input(f"New name ({items[idx]['name']}): ") or items[idx]['name']
+            new_type = input(f"New type ({items[idx]['type']}): ") or items[idx]['type']
+            new_qty = input(f"New quantity ({items[idx]['quantity']}): ") or items[idx]['quantity']
+
+            items[idx] = {
+                "name": new_name,
+                "type": new_type,
+                "quantity": new_qty
+            }
+            print("Item updated!\n")
+        else:
+            print("Invalid number.\n")
+    else:
+        print("Please enter a number.\n")
+
+def main():
+    if not login():
+        return
+
+    items = []
+
+    while True:
+        print("=== Grocery Inventory Menu ===")
+        print("1. Display all items")
+        print("2. Add item")
+        print("3. Delete item")
+        print("4. Edit item")
+        print("5. Exit")
+
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            display_items(items)
+        elif choice == "2":
+            add_item(items)
+        elif choice == "3":
+            delete_item(items)
+        elif choice == "4":
+            edit_item(items)
+        elif choice == "5":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice.\n")
+
+if __name__ == "__main__":
+    main()
