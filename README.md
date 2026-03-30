@@ -4,14 +4,14 @@ A simple command-line inventory management system built in Python that allows us
 
 ---
 
-## 📌 Overview
+## Overview
 This project is a Python-based CLI (Command Line Interface) application that simulates a basic inventory management system. It allows users to manage grocery items efficiently using a menu-driven interface.
 
 The system demonstrates core programming concepts such as input handling, data structures, and function-based design.
 
 ---
 
-## 🎯 Features
+## Features
 - User login system (basic authentication)  
 - Display all items  
 - Add new items  
@@ -22,7 +22,7 @@ The system demonstrates core programming concepts such as input handling, data s
 
 ---
 
-## 🧠 How It Works
+## How It Works
 1. The user logs into the system  
 2. A menu is displayed with multiple options  
 3. The user can:
@@ -34,18 +34,18 @@ The system demonstrates core programming concepts such as input handling, data s
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 - Python  
 - Command Line Interface (CLI)  
 
 ---
 
-## 📊 Example Output
+## Example Output
 --- Grocery Inventory Menu ---
 
-Display all items
-Add item
-Delete item
-Edit item
-Exit
+- Display all items
+- Add item
+- Delete item
+- Edit item
+- Exit
 
